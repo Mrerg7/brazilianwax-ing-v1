@@ -7,7 +7,7 @@ export const SITE = {
   email: 'sales@desertrich.com',
   locale: 'en_US',
   location: 'Scottsdale, Arizona',
-  googleSiteVerification: '',
+  googleSiteVerification: '4PQjqbSuTetbyhjS3lmsqBZsWz6mjTnMSQBsfLusJ8o',
 } as const;
 
 export const ACQUISITION_MAILTO = `mailto:${SITE.email}?subject=${encodeURIComponent('Acquisition Inquiry - brazilianwax.ing')}&body=${encodeURIComponent('Hello,\n\nI am interested in acquiring brazilianwax.ing. Please provide details and next steps.\n\nBest regards,')}`;
