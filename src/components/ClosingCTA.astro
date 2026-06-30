@@ -1,0 +1,48 @@
+---
+import { ACQUISITION_MAILTO, SITE } from '../config/site';
+---
+
+<section id="acquire" class="bg-[#2D2D2D] text-white">
+  <div class="max-w-4xl mx-auto px-6 py-20 text-center">
+    <div class="max-w-xl mx-auto">
+      <div class="inline-block px-4 py-1 bg-white/10 rounded-full text-xs font-medium tracking-wider mb-6">PREMIUM ACQUISITION OPPORTUNITY</div>
+
+      <h2 class="text-5xl md:text-[3rem] font-semibold tracking-tighter leading-none mb-6">Own the most direct name<br>in Brazilian waxing.</h2>
+
+      <p class="text-xl text-white/70 mb-10">brazilianwax.ing is a clean, modern, and highly searchable domain with SEO built directly into the name. It offers strong brand clarity and conversion potential for serious buyers in the professional waxing space.</p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href={ACQUISITION_MAILTO}
+           class="inline-flex items-center justify-center gap-x-3 px-10 py-4 bg-white text-[#2D2D2D] hover:bg-[#F8F1E9] font-semibold text-lg rounded-3xl transition-all active:scale-[0.985]">
+          <span>Make an Offer</span>
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+
+        <button onclick="copyEmail()"
+                class="inline-flex items-center justify-center gap-x-3 px-8 py-4 border border-white/30 hover:bg-white/5 font-medium text-lg rounded-3xl transition-all">
+          <span>Copy Contact Email</span>
+        </button>
+      </div>
+
+      <p class="mt-8 text-sm text-white/50">Serious inquiries only.</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  function copyEmail() {
+    const email = 'sales@desertrich.com';
+    navigator.clipboard.writeText(email).then(() => {
+      const btns = document.querySelectorAll('button');
+      btns.forEach(btn => {
+        if (btn.innerText.includes('Copy Contact')) {
+          const original = btn.innerHTML;
+          btn.innerHTML = `<span>Copied!</span>`;
+          setTimeout(() => { btn.innerHTML = original; }, 2000);
+        }
+      });
+    }).catch(() => {
+      window.location.href = `mailto:${email}`;
+    });
+  }
+</script>

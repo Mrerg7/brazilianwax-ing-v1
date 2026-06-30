@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Hero from '../components/Hero.astro';
+import WhySection from '../components/WhySection.astro';
+import ValueSection from '../components/ValueSection.astro';
+import UseCases from '../components/UseCases.astro';
+import ClosingCTA from '../components/ClosingCTA.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout>
+  <Nav />
+  <main>
+    <Hero />
+    <WhySection />
+    <ValueSection />
+    <UseCases />
+    <ClosingCTA />
+    <Footer />
+  </main>
+</BaseLayout>
+
+<script>
+  // Nav scroll effect
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) {
+      nav?.classList.add('nav-scrolled', 'bg-white/95');
+    } else {
+      nav?.classList.remove('nav-scrolled');
+    }
+  });
+
+  console.log('%c[brazilianwax.ing] Premium domain landing page initialized.', 'color:#B85C38');
+</script>
