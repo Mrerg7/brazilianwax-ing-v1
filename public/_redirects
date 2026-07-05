@@ -1,0 +1,2 @@
+# Normalize duplicate entry points to the canonical homepage.
+/index.html / 301

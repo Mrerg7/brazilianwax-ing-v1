@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import { SITE, ACQUISITION_MAILTO } from '../config/site';
+import { SITE, ACQUISITION_MAILTO, CANONICAL_HOME, canonicalUrl } from '../config/site';
 
 interface Props {
   title?: string;
@@ -14,7 +14,7 @@ const {
   noindex = false,
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, SITE.url);
+const canonicalURL = canonicalUrl(Astro.url.pathname);
 const publishedDate = '2026-06-30';
 
 const structuredData = {
@@ -22,30 +22,30 @@ const structuredData = {
   '@graph': [
     {
       '@type': 'WebSite',
-      '@id': `${SITE.url}/#website`,
-      url: SITE.url,
+      '@id': `${CANONICAL_HOME}#website`,
+      url: CANONICAL_HOME,
       name: SITE.name,
       description,
       inLanguage: 'en-US',
     },
     {
       '@type': 'WebPage',
-      '@id': `${SITE.url}/#webpage`,
-      url: SITE.url,
+      '@id': `${CANONICAL_HOME}#webpage`,
+      url: CANONICAL_HOME,
       name: title,
       description,
-      isPartOf: { '@id': `${SITE.url}/#website` },
+      isPartOf: { '@id': `${CANONICAL_HOME}#website` },
       datePublished: publishedDate,
       dateModified: publishedDate,
       inLanguage: 'en-US',
     },
     {
       '@type': 'Product',
-      '@id': `${SITE.url}/#product`,
+      '@id': `${CANONICAL_HOME}#product`,
       name: 'brazilianwax.ing Premium Domain Name',
       description:
         'The definitive premium domain for professional Brazilian waxing, salons, and beauty services. Available for acquisition.',
-      url: SITE.url,
+      url: CANONICAL_HOME,
       category: 'Premium Domain Name',
       brand: {
         '@type': 'Brand',
@@ -116,9 +116,9 @@ const structuredData = {
     },
     {
       '@type': 'Organization',
-      '@id': `${SITE.url}/#organization`,
+      '@id': `${CANONICAL_HOME}#organization`,
       name: SITE.name,
-      url: SITE.url,
+      url: CANONICAL_HOME,
       email: SITE.email,
       address: {
         '@type': 'PostalAddress',
