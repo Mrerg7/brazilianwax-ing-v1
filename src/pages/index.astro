@@ -32,5 +32,18 @@ import Footer from '../components/Footer.astro';
     }
   });
 
+  // Mobile menu toggle
+  const toggle = document.getElementById('mobile-menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  toggle?.addEventListener('click', () => {
+    menu?.classList.toggle('hidden');
+    const icon = toggle.querySelector('i');
+    if (icon) {
+      icon.className = menu?.classList.contains('hidden')
+        ? 'fa-solid fa-bars text-xl text-[#2D2D2D]'
+        : 'fa-solid fa-xmark text-xl text-[#2D2D2D]';
+    }
+  });
+
   console.log('%c[brazilianwax.ing] Premium domain landing page initialized.', 'color:#B85C38');
 </script>

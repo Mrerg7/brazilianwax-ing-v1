@@ -30,12 +30,32 @@
     }
   }
 
+  @media (max-width: 480px) {
+    .domain-hero {
+      font-size: 2rem;
+    }
+  }
+
   .section-header {
-    font-size: 2.1rem;
-    line-height: 2.4rem;
+    font-size: 1.5rem;
+    line-height: 2rem;
     font-weight: 700;
     letter-spacing: -0.025em;
     color: #2D2D2D;
+  }
+
+  @media (min-width: 640px) {
+    .section-header {
+      font-size: 1.85rem;
+      line-height: 2.2rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .section-header {
+      font-size: 2.1rem;
+      line-height: 2.4rem;
+    }
   }
 
   .value-card {

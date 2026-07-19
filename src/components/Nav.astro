@@ -10,8 +10,8 @@ import { ACQUISITION_MAILTO } from '../config/site';
           <span class="text-white text-2xl font-bold tracking-tighter">BW</span>
         </div>
         <div>
-          <span class="font-semibold text-2xl tracking-tight">brazilianwax</span>
-          <span class="font-semibold text-2xl tracking-tight text-brand-500">.ing</span>
+          <span class="font-semibold text-lg sm:text-xl md:text-2xl tracking-tight">brazilianwax</span>
+          <span class="font-semibold text-lg sm:text-xl md:text-2xl tracking-tight text-brand-500">.ing</span>
         </div>
       </div>
 
@@ -20,7 +20,22 @@ import { ACQUISITION_MAILTO } from '../config/site';
         <a href="#value" class="hidden md:block px-5 py-2 text-sm font-medium text-[#4A5D4A] hover:text-[#2D2D2D] transition-colors">Value &amp; Market</a>
 
         <a href={ACQUISITION_MAILTO}
-           class="inline-flex items-center justify-center px-7 py-2.5 bg-brand-500 hover:bg-brand-600 text-white text-sm font-semibold rounded-2xl transition-all active:scale-[0.985]">
+           class="hidden sm:inline-flex items-center justify-center px-5 sm:px-7 py-2.5 bg-brand-500 hover:bg-brand-600 text-white text-sm font-semibold rounded-2xl transition-all active:scale-[0.985]">
+          Inquire to Acquire
+        </a>
+
+        <button id="mobile-menu-toggle" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-xl hover:bg-black/5 transition-colors" aria-label="Toggle navigation menu">
+          <i class="fa-solid fa-bars text-xl text-[#2D2D2D]"></i>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="md:hidden hidden pb-4">
+      <div class="flex flex-col gap-y-2 pt-2 border-t border-[#EDE4D7]">
+        <a href="#why" class="px-5 py-3 text-sm font-medium text-[#4A5D4A] hover:bg-[#F8F1E9] rounded-xl transition-colors">Why This Domain</a>
+        <a href="#value" class="px-5 py-3 text-sm font-medium text-[#4A5D4A] hover:bg-[#F8F1E9] rounded-xl transition-colors">Value &amp; Market</a>
+        <a href={ACQUISITION_MAILTO}
+           class="sm:hidden mt-2 inline-flex items-center justify-center px-6 py-3 bg-brand-500 hover:bg-brand-600 text-white text-sm font-semibold rounded-2xl transition-all">
           Inquire to Acquire
         </a>
       </div>
