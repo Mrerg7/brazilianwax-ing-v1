@@ -5,9 +5,20 @@ interface Env {
   ASSETS: Fetcher;
 }
 
+function normalizePathname(pathname: string): string {
+  if (pathname === '/index.html' || pathname === '/index.htm') {
+    return '/';
+  }
+  if (pathname.endsWith('/index.html') || pathname.endsWith('/index.htm')) {
+    return pathname.slice(0, pathname.lastIndexOf('/index.')) + '/';
+  }
+  return pathname;
+}
+
 function redirectToCanonical(url: URL, status = 301): Response {
+  const normalizedPath = normalizePathname(url.pathname);
   const destination = new URL(
-    url.pathname + url.search + url.hash,
+    normalizedPath + url.search + url.hash,
     CANONICAL_ORIGIN,
   );
   return Response.redirect(destination.href, status);
@@ -23,6 +34,15 @@ export default {
 
     if (url.protocol === 'http:') {
       return redirectToCanonical(url);
+    }
+
+    if (url.pathname.endsWith('/index.html') || url.pathname.endsWith('/index.htm')) {
+      const normalizedPath = normalizePathname(url.pathname);
+      const destination = new URL(
+        normalizedPath + url.search + url.hash,
+        CANONICAL_ORIGIN,
+      );
+      return Response.redirect(destination.href, 301);
     }
 
     if (
