@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import { SITE, ACQUISITION_MAILTO, CANONICAL_HOME, canonicalUrl } from '../config/site';
+import { SITE, ACQUISITION_MAILTO, CANONICAL_HOME, IMAGE_URL, canonicalUrl } from '../config/site';
 
 interface Props {
   title?: string;
@@ -46,6 +46,7 @@ const structuredData = {
       description:
         'The definitive premium domain for professional Brazilian waxing, salons, and beauty services. Available for acquisition.',
       url: CANONICAL_HOME,
+      image: IMAGE_URL,
       category: 'Premium Domain Name',
       brand: {
         '@type': 'Brand',
@@ -120,6 +121,7 @@ const structuredData = {
       name: SITE.name,
       url: CANONICAL_HOME,
       email: SITE.email,
+      image: IMAGE_URL,
       address: {
         '@type': 'PostalAddress',
         addressLocality: 'Scottsdale',
@@ -150,10 +152,16 @@ const structuredData = {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:locale" content={SITE.locale} />
+    <meta property="og:image" content={IMAGE_URL} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={SITE.name} />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={IMAGE_URL} />
+    <meta name="twitter:image:alt" content={SITE.name} />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />

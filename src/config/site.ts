@@ -23,4 +23,6 @@ export function canonicalUrl(pathname: string): string {
   return new URL(normalizedPath, CANONICAL_HOME).href;
 }
 
+export const IMAGE_URL = `${SITE.url}/image.svg`;
+
 export const ACQUISITION_MAILTO = `mailto:${SITE.email}?subject=${encodeURIComponent('Acquisition Inquiry - brazilianwax.ing')}&body=${encodeURIComponent('Hello,\n\nI am interested in acquiring brazilianwax.ing. Please provide details and next steps.\n\nBest regards,')}`;
